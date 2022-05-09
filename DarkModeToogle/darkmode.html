@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DarkMode</title>
+    <style>
+        body {
+            height: 95vh;
+            background: #fff;
+            color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: cursive;
+            font-style: italic;
+        }
+
+        #content {
+            width: 430px;
+        }
+
+        img {
+            width: 100%;
+            height: 550px;
+            margin-bottom: -10px;
+        }
+
+        span {
+            display: block;
+            height: 18px;
+            width: 35px;
+            margin: auto;
+            border: 2px solid;
+            border-radius: 11px;
+            margin-bottom: 5px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        span::before {
+            content: '';
+            position: absolute;
+            height: 16px;
+            width: 16px;
+            top: 1px;
+            left: 1px;
+            background: #000;
+            border-radius: 50%;
+            transition: .4s;
+        }
+
+        .clicked::before {
+            left: 18px;
+            background: #fff;
+        }
+
+        .bodychange {
+            background: #000;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="content">
+        <span id="switch"></span>
+        <img src="ls.jpg">
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia odit vitae dolorem nesciunt, quisquam aliquid
+            fuga similique aperiam mollitia cumque ea, est sequi perferendis reiciendis!</p>
+    </div>
+    <script>
+        var mainContent = document.getElementsByTagName('body')[0];
+        var mainSwitch = document.getElementById('switch');
+        mainSwitch.addEventListener('click', change);
+        function change() {
+            mainContent.classList.toggle('bodychange');
+            mainSwitch.classList.toggle('clicked');
+        }
+    </script>
+</body>
+
+</html>
